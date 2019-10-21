@@ -1,16 +1,12 @@
-#!/usr/bin /env node
+#!/usr/bin/env node
 
 const optimist = require('optimist'),
   fs = require('fs'),
   replace = require('replace'),
   htmlparser = require('htmlparser2'),
-  chalk = require('chalk'),
   path = require('path'),
   readline = require('readline'),
   request = require('sync-request');
-
-//clear = require('clear');
-// question to ask
 
 
 var html = new String("");
@@ -22,7 +18,9 @@ var dir = ARGS['d'];
 //gets input directory parces the file and returns a Promise
 //fromReject is a html doc with images in base64 and js files inbeaded
 function getInput() {
+
   return new Promise(function(resolve, reject){
+
     if (dir === undefined) {
       reject("The in no input.");
     } else {
@@ -63,7 +61,7 @@ function getInput() {
           //todo still need frames
         } else if (file.slice(-3) == "gif") {
           //gets git file
-          if (file.slice3(-3) == "_preloader") {
+          if (file.slice(-3) == "_preloader") {
             preloader64 = "data:image/pnd;base64," + fs.readFileSync(dir + "/" + file, 'base64') + "\"\n";
           } else {
             let _gif64 = "\"data:image/pnd;base64," + fs.readFileSync(dir + "/" + file, 'base64') + "\"\n";
@@ -81,7 +79,7 @@ function getInput() {
               body: _js
             });
           } catch (e) {
-            console.log(chalk.magenta("dude why did you think that would work..."));
+            console.log("dude why did you think that would work...");
           }
         }
 
@@ -193,7 +191,7 @@ let validate = function(outputFile) {
         }
       }
     } catch (err) {
-      console.log(err + "/n fettal error");
+      console.log(err + "\n fettal error");
       reject("validate rejected");
     }
   });
@@ -212,7 +210,7 @@ let write = function(file, location) {
     resolve();
   });
 }
-//this controls the app. insures that the function will exicute in corect order
+// Makes the app call correct functions order
 getInput().then(function (){
   return getOutput();
 }).then(function(fromResolve) {
@@ -220,7 +218,7 @@ getInput().then(function (){
 }).then(function(fromResolve) {
   return write(html, fromResolve);
 }).catch(function(fromReject) {
-  console.log(chalk.magenta(fromReject+"\n please correct error and try again"));
+  console.log(fromReject+"\n please correct error and try again");
 });
 //for asking non true false questions
 //returns a string

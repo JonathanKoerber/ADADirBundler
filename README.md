@@ -7,4 +7,4 @@ This package takes as an option a directory from Adobe Animate containing images
 
 #Installation
 
-'npm install chrashboom --save'
+'npm install ada_dir_bundler --save'

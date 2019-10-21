@@ -1,0 +1,37 @@
+{
+  "name": "ada_dir_bundler",
+  "version": "1.0.0",
+  "preferGlobal": true,
+  "description": "\"This package takes as an option a directory from Adobe Animate containing images, js, and HTML and converts the directory into a single HTML file named 'publish_index.html' whitch is inserted into the original dir. The output file will have all js fill added to the head of 'publish_index.html' and the image files will be converted to base64. The file conversion will allow the file to run in a closed environment.\"",
+  "main": "index.js",
+  "bin":{"ADABundler":"index.js"},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanKoerber/ADADirBundler.git"
+  },
+  "dependencies": {
+  "async": "^2.6.2",
+  "htmlparser2": "^3.10.1",
+  "optimist": "^0.6.1",
+  "promise": "^8.0.2",
+  "redline": "^1.0.1",
+  "replace": "^1.0.1",
+  "request": "^2.18.0",
+  "request-promise-native": "^1.0.7",
+  "sync-request": "^6.1.0"
+},
+  "keywords": [
+    "Cli",
+    "Bundle",
+    "Dir"
+  ],
+  "author": "jonathankoerber",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanKoerber/ADADirBundler/issues"
+  },
+  "homepage": "https://github.com/JonathanKoerber/ADADirBundler#readme"
+}
